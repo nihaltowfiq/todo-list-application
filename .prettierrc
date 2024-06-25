@@ -6,5 +6,9 @@
 	"arrowParens": "always",
 	"printWidth": 80,
 	"endOfLine": "auto",
-	"semi": true
+	"semi": true,
+	"bracketSpacing": true,
+	"htmlWhitespaceSensitivity": "css",
+	"insertPragma": false,
+	"jsxSingleQuote": false
 }

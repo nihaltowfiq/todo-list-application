@@ -29,8 +29,9 @@
 		/* Path */
 		"baseUrl": "./src",
 		"paths": {
-			"@components/*": ["components/*"],
-			"@utils/*": ["utils/*"]
+			"@libs/*": ["libs/*"],
+			"@utils/*": ["utils/*"],
+			"@components/*": ["components/*"]
 		}
 	},
 	"include": ["src"]
