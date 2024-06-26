@@ -9,6 +9,7 @@ export default defineConfig({
 		alias: {
 			'@libs': resolve(__dirname, 'src/libs'),
 			'@utils': resolve(__dirname, 'src/utils'),
+			'@context': resolve(__dirname, 'src/context'),
 			'@components': resolve(__dirname, 'src/components'),
 		},
 	},

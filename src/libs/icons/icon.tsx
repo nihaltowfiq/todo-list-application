@@ -4,7 +4,7 @@ export function Icon({
 	path,
 	width = 24,
 	height = 24,
-	fill = '#444444',
+	fill = 'currentColor',
 	viewBox = '0 0 24 24',
 	...rest
 }: IconProps) {
