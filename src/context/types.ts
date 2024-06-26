@@ -1,23 +1,16 @@
 import { Status, Todo } from '@libs/types';
 
-export type TodoState = {
-	new: Todo[];
-	ongoing: Todo[];
-	done: Todo[];
-};
+export type TodoState = Todo[];
 
 export type TodoContextProps = {
-	state: TodoState;
+	todos: TodoState;
 	addTodo: (payload: AddTodo) => void;
-	updateNew: (tasks: Todo[]) => void;
-	updateOngoing: (tasks: Todo[]) => void;
-	updateDone: (tasks: Todo[]) => void;
+	moveTodo: (payload: MoveTodo) => void;
 };
 
-export type AddTodo = { status: Status; item: Todo };
+export type AddTodo = { item: Todo; status?: Status };
+export type MoveTodo = { status: Status; id: number };
 
 export type ActionType =
 	| { type: 'ADD'; payload: AddTodo }
-	| { type: 'UPDATE_NEW'; payload: Todo[] }
-	| { type: 'UPDATE_ONGOING'; payload: Todo[] }
-	| { type: 'UPDATE_DONE'; payload: Todo[] };
+	| { type: 'MOVE'; payload: MoveTodo };

@@ -20,7 +20,7 @@ export function Editor({ status, closeHandler }: Props) {
 	const handlerSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const item = { ...values, status };
-		addTodo({ status, item });
+		addTodo({ item });
 		closeHandler();
 		setValues({ title: '', description: '' });
 	};
