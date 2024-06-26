@@ -9,7 +9,13 @@ import { ActionType, AddTodo, TodoContextProps, TodoState } from './types';
 // };
 const initialState: TodoState = {
 	new: [
-		{ id: 1, title: 'new 1', description: '', status: 'new' },
+		{
+			id: 1,
+			title: 'new 1 new 1 new 1 new 1 new 1 new 1',
+			description:
+				'description description description description description description description description description description ',
+			status: 'new',
+		},
 		{ id: 2, title: 'new 2', description: '', status: 'new' },
 	],
 	ongoing: [
@@ -36,7 +42,7 @@ const taskReducer = (state: TodoState, action: ActionType): TodoState => {
 			const { status, item } = action.payload;
 			const items = state[status];
 			const id = [...state.new, ...state.ongoing, ...state.done].length + 1;
-			return { ...state, [status]: [...items, { ...item, id }] };
+			return { ...state, [status]: [{ ...item, id }, ...items] };
 		}
 		case 'UPDATE_NEW':
 			return { ...state, new: action.payload };

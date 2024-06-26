@@ -1,14 +1,14 @@
 import Icon, { moreHorizontal } from '@libs/icons';
-import { Todo } from '@libs/types';
+import { Status, Todo } from '@libs/types';
 import { capitalize } from '@utils/helpers';
 import { Card } from './Card';
 import { CardAdder } from './CardAdder';
 
-export function Column({ title, items }: Props) {
+export function Column({ status, items }: Props) {
 	return (
 		<div className="w-full min-w-[300px] bg-secondary-400 min-h-screen rounded-lg">
 			<div className="flex w-full justify-between items-center p-[1rem]">
-				<p>{capitalize(title)}</p>
+				<p>{capitalize(status)}</p>
 				<Icon className="cursor-pointer" path={moreHorizontal} />
 			</div>
 
@@ -20,12 +20,12 @@ export function Column({ title, items }: Props) {
 				</div>
 			)}
 
-			<CardAdder status={title} />
+			{status === 'new' && <CardAdder status={status} />}
 		</div>
 	);
 }
 
 type Props = {
 	items: Todo[];
-	title: Todo['status'];
+	status: Status;
 };
