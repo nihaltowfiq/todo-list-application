@@ -1,9 +1,17 @@
-import { Todo } from '@libs/types';
+import { TodoContext } from '@context';
+import { Status, Todo } from '@libs/types';
 import * as ContextMenu from '@radix-ui/react-context-menu';
 import { classNames } from '@utils/helpers';
+import { useContext } from 'react';
 import './styles.scss';
 
-export function Card({ title, description, status }: Props) {
+export function Card({ id, title, description, status }: Props) {
+	const { moveTodo } = useContext(TodoContext);
+
+	const handleMove = (status: Status) => {
+		moveTodo({ status, id });
+	};
+
 	return (
 		<ContextMenu.Root>
 			<ContextMenu.Trigger className="">
@@ -23,9 +31,21 @@ export function Card({ title, description, status }: Props) {
 			</ContextMenu.Trigger>
 			<ContextMenu.Portal>
 				<ContextMenu.Content className="ContextMenuContent">
-					<ContextMenu.Sub>
+					<ContextMenu.Item
+						className="ContextMenuItem"
+						onClick={() => handleMove('ongoing')}
+					>
+						Move to Ongoing
+					</ContextMenu.Item>
+					<ContextMenu.Item
+						className="ContextMenuItem"
+						onClick={() => handleMove('done')}
+					>
+						Move to Done
+					</ContextMenu.Item>
+					{/* <ContextMenu.Sub>
 						<ContextMenu.SubTrigger className="ContextMenuSubTrigger">
-							More Tools
+							Move To
 						</ContextMenu.SubTrigger>
 						<ContextMenu.Portal>
 							<ContextMenu.SubContent
@@ -48,7 +68,7 @@ export function Card({ title, description, status }: Props) {
 								</ContextMenu.Item>
 							</ContextMenu.SubContent>
 						</ContextMenu.Portal>
-					</ContextMenu.Sub>
+					</ContextMenu.Sub> */}
 				</ContextMenu.Content>
 			</ContextMenu.Portal>
 		</ContextMenu.Root>
