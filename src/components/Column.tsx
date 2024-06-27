@@ -1,14 +1,25 @@
 import Icon, { moreHorizontal } from '@libs/icons';
 import { Status, Todo } from '@libs/types';
-import { capitalize } from '@utils/helpers';
+import { capitalize, classNames } from '@utils/helpers';
 import { Card } from './Card';
 import { CardAdder } from './CardAdder';
 
 export function Column({ status, items }: Props) {
 	return (
-		<div className="w-full lg:min-w-[250px] bg-secondary-400 min-h-[calc(100vh-82px)] rounded-lg">
+		<div className="w-full lg:min-w-[250px] pb-[1rem] bg-secondary-400 min-h-[calc(100vh-110px)] lg:min-h-[calc(100vh-82px)] rounded-lg">
 			<div className="flex w-full justify-between items-center p-[1rem]">
-				<p>{capitalize(status)}</p>
+				<p
+					className={classNames(
+						{
+							'text-tertiary': status === 'done',
+							'text-primary': status === 'new',
+							'text-quaternary': status === 'ongoing',
+						},
+						'font-medium',
+					)}
+				>
+					{capitalize(status)}
+				</p>
 				<Icon className="cursor-pointer" path={moreHorizontal} />
 			</div>
 

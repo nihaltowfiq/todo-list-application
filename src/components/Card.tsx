@@ -4,7 +4,6 @@ import * as ContextMenu from '@radix-ui/react-context-menu';
 import { statuses } from '@utils/constants';
 import { capitalize, classNames } from '@utils/helpers';
 import { useContext } from 'react';
-import './styles.scss';
 
 export function Card({ id, title, description, status }: Props) {
 	const { moveTodo } = useContext(TodoContext);
@@ -23,11 +22,15 @@ export function Card({ id, title, description, status }: Props) {
 							'border-primary': status === 'new',
 							'border-quaternary': status === 'ongoing',
 						},
-						'bg-white rounded-md mb-[1rem] p-[0.75rem] border-2',
+						'bg-white rounded-md mb-[1rem] p-[0.75rem] border',
 					)}
 				>
-					<p className="truncate">{title}</p>
-					<p className="text-[0.85rem] line-clamp-2">{description}</p>
+					<p title={title} className="line-clamp-2 font-semibold">
+						{title}
+					</p>
+					<p title={title} className="text-[0.95rem] line-clamp-3">
+						{description}
+					</p>
 				</div>
 			</ContextMenu.Trigger>
 			<ContextMenu.Portal>
@@ -36,6 +39,7 @@ export function Card({ id, title, description, status }: Props) {
 						if (status !== el) {
 							return (
 								<ContextMenu.Item
+									onClick={() => handleMove(el)}
 									className={classNames(
 										{
 											'hover:!text-tertiary': el === 'done',
@@ -44,7 +48,6 @@ export function Card({ id, title, description, status }: Props) {
 										},
 										'ContextMenuItem',
 									)}
-									onClick={() => handleMove(el)}
 								>
 									Move to {capitalize(el)}
 								</ContextMenu.Item>

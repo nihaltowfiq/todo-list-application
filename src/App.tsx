@@ -9,7 +9,7 @@ function App() {
 
 	return (
 		<div className="container max-w-[1024px]">
-			<h1 className="text-white my-4 text-center text-[1.75rem] font-semibold">
+			<h1 className="text-white my-4 text-center text-[1.15rem] lg:text-[1.75rem] font-semibold">
 				Todo List Application
 			</h1>
 
