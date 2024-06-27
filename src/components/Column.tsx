@@ -6,7 +6,7 @@ import { CardAdder } from './CardAdder';
 
 export function Column({ status, items }: Props) {
 	return (
-		<div className="w-full lg:min-w-[250px] pb-[1rem] bg-secondary-400 min-h-[calc(100vh-110px)] lg:min-h-[calc(100vh-82px)] rounded-lg">
+		<div className="w-full lg:min-w-[250px] pb-[1rem] bg-secondary-400 min-h-[calc(100vh-125px)] lg:min-h-[calc(100vh-90px)] rounded-lg">
 			<div className="flex w-full justify-between items-center p-[1rem]">
 				<p
 					className={classNames(

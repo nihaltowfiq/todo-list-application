@@ -8,8 +8,8 @@ function App() {
 	const { todos } = useContext(TodoContext);
 
 	return (
-		<div className="container max-w-[1024px]">
-			<h1 className="text-white my-4 text-center text-[1.15rem] lg:text-[1.75rem] font-semibold">
+		<div className="container max-w-[1024px] mb-4">
+			<h1 className="text-white py-4 text-center text-[1.15rem] lg:text-[1.75rem] font-semibold">
 				Todo List Application
 			</h1>
 
