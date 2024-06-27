@@ -5,4 +5,6 @@ export type Todo = {
 	title: string;
 	description: string;
 	status: Status;
+	timestamp?: number;
+	minute?: number;
 };
