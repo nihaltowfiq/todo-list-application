@@ -1,7 +1,8 @@
 import { TodoContext } from '@context';
 import { Status, Todo } from '@libs/types';
 import * as ContextMenu from '@radix-ui/react-context-menu';
-import { classNames } from '@utils/helpers';
+import { statuses } from '@utils/constants';
+import { capitalize, classNames } from '@utils/helpers';
 import { useContext } from 'react';
 import './styles.scss';
 
@@ -14,7 +15,7 @@ export function Card({ id, title, description, status }: Props) {
 
 	return (
 		<ContextMenu.Root>
-			<ContextMenu.Trigger className="">
+			<ContextMenu.Trigger>
 				<div
 					className={classNames(
 						{
@@ -31,44 +32,25 @@ export function Card({ id, title, description, status }: Props) {
 			</ContextMenu.Trigger>
 			<ContextMenu.Portal>
 				<ContextMenu.Content className="ContextMenuContent">
-					<ContextMenu.Item
-						className="ContextMenuItem"
-						onClick={() => handleMove('ongoing')}
-					>
-						Move to Ongoing
-					</ContextMenu.Item>
-					<ContextMenu.Item
-						className="ContextMenuItem"
-						onClick={() => handleMove('done')}
-					>
-						Move to Done
-					</ContextMenu.Item>
-					{/* <ContextMenu.Sub>
-						<ContextMenu.SubTrigger className="ContextMenuSubTrigger">
-							Move To
-						</ContextMenu.SubTrigger>
-						<ContextMenu.Portal>
-							<ContextMenu.SubContent
-								className="ContextMenuSubContent"
-								sideOffset={2}
-								alignOffset={-5}
-							>
-								<ContextMenu.Item className="ContextMenuItem">
-									Save Page As… <div className="RightSlot">⌘+S</div>
+					{statuses.map((el) => {
+						if (status !== el) {
+							return (
+								<ContextMenu.Item
+									className={classNames(
+										{
+											'hover:!text-tertiary': el === 'done',
+											'hover:!text-primary': el === 'new',
+											'hover:!text-quaternary': el === 'ongoing',
+										},
+										'ContextMenuItem',
+									)}
+									onClick={() => handleMove(el)}
+								>
+									Move to {capitalize(el)}
 								</ContextMenu.Item>
-								<ContextMenu.Item className="ContextMenuItem">
-									Create Shortcut…
-								</ContextMenu.Item>
-								<ContextMenu.Item className="ContextMenuItem">
-									Name Window…
-								</ContextMenu.Item>
-								<ContextMenu.Separator className="ContextMenuSeparator" />
-								<ContextMenu.Item className="ContextMenuItem">
-									Developer Tools
-								</ContextMenu.Item>
-							</ContextMenu.SubContent>
-						</ContextMenu.Portal>
-					</ContextMenu.Sub> */}
+							);
+						}
+					})}
 				</ContextMenu.Content>
 			</ContextMenu.Portal>
 		</ContextMenu.Root>

@@ -44,19 +44,21 @@ export function Editor({ status, closeHandler }: Props) {
 				placeholder="Write the description here.."
 			/>
 
-			<div className="flex items-center justify-end gap-1 mt-2">
+			<div className="flex items-center justify-between gap-2 mt-2">
 				<button
 					type="submit"
-					className="hover:bg-secondary-400 text-secondary/70 border-2 border-secondary/10 rounded p-2"
+					className="w-full flex items-center justify-center gap-2 hover:bg-secondary-400 text-secondary/70 border-2 border-secondary/10 rounded py-1 px-2"
 				>
 					<Icon path={check} height={16} width={16} />
+					<span>Add</span>
 				</button>
 				<button
 					type="button"
 					onClick={closeHandler}
-					className="hover:bg-secondary-400 text-secondary/70 border-2 border-secondary/10 rounded p-2"
+					className="w-full flex items-center justify-center gap-2 hover:bg-secondary-400 text-secondary/70 border-2 border-secondary/10 rounded py-1 px-2"
 				>
 					<Icon path={close} height={16} width={16} />
+					<span>Close</span>
 				</button>
 			</div>
 		</form>

@@ -12,7 +12,7 @@ export function InputArea({
 			rows={rows}
 			name={name}
 			value={value}
-			className="w-full outline-none"
+			className="w-full outline-none border-2 border-secondary-400 p-2 rounded"
 			onChange={changeHandler}
 			placeholder={placeholder}
 		/>

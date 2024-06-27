@@ -6,7 +6,7 @@ import { CardAdder } from './CardAdder';
 
 export function Column({ status, items }: Props) {
 	return (
-		<div className="w-full min-w-[300px] bg-secondary-400 min-h-screen rounded-lg">
+		<div className="w-full lg:min-w-[250px] bg-secondary-400 min-h-[calc(100vh-82px)] rounded-lg">
 			<div className="flex w-full justify-between items-center p-[1rem]">
 				<p>{capitalize(status)}</p>
 				<Icon className="cursor-pointer" path={moreHorizontal} />
