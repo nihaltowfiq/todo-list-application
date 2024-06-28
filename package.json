@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
-	"homepage": "https://nihaltowfiq.github.io/todo-list-application/",
+	"homepage": "https://nihaltowfiq.github.io/todo-list-application",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
